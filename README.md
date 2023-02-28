@@ -1,22 +1,32 @@
 
-# Examen Backend Dan Hermes Reyes Osnaya
-
-Este es un examen para la prueba al puesto de trabajo como desarrollador web.
-
-
-
-
 ## Instalación
 
 Instalación del proyecto en Laravel
 
 Primeramente se debe ejecutar el comando composer install para instalar todas las dependencias solicitadas
 ```bash
-  composer install
+composer install
 ```
-Se recomienda ejecutar el siguiente comando para que el proyecto hecho en Vue Js pueda consumir la Api correspondiente
+Una vez hecho la instalacion de composer, en el archivo .env vienen las credenciales a utilizar para la conexión a la Base de datos, en este caso se usó MySQL, usar las credenciales correspondientes a su instalación de MySQL.
+
 ```bash
-  php artisan serve --port=9000
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=examen_prueba_tecnica
+DB_USERNAME=root
+DB_PASSWORD=
+```
+Ya teniendo las credenciales correctas, se ejecutará el siguiente comando para tener los 100 registros de prueba y asi mismo poder tener informacion Dummy.
+```bash
+php artisan migrate:fresh --seed
+```
+El comando anterior ejecutara un seeder el cual a traves de un factory creara los 100 registros que se van a usar como prueba, el proyecto backend como el frontend funcionan perfectamente sin estos registros.
+
+------------------------------------------------------------
+Para levantar el servidor se recomienda ejecutar el siguiente comando para que el proyecto hecho en Vue Js pueda consumir la Api correspondiente
+```bash
+php artisan serve --port=9000
 ```
 El proyecto de Vue JS traer los datos de http://127.0.0.1:9000/ es por eso que se especifica que correra en el puerto 9000.
 
